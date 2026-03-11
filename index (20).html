@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>זירת העודפים של ישראל – פרסם מודעה</title>
+<link href="https://fonts.googleapis.com/css2?family=Secular+One&family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#1A3C8F;--blue-dark:#122a6a;--blue-light:#2a52b8;
+  --yellow:#FFC107;--black:#111;--white:#fff;
+  --offwhite:#f4f7fc;--gray:#eef2f9;--mid:#666;--border:#d0daf0;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Heebo',sans-serif;background:var(--offwhite);color:var(--black);min-height:100vh;overflow-x:hidden;}
+
+/* HERO */
+.hero{background:var(--blue);position:relative;overflow:hidden;}
+.hero-inner{position:relative;z-index:2;text-align:center;padding:44px 24px 36px;}
+.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-55deg,transparent 0,transparent 28px,rgba(0,0,0,.07) 28px,rgba(0,0,0,.07) 30px);z-index:1;}
+.hero::after{content:'';position:absolute;top:0;left:0;right:0;height:6px;background:var(--yellow);z-index:3;}
+.hero-badge{display:inline-block;background:var(--yellow);color:var(--black);font-family:'Secular One',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;padding:5px 16px;border-radius:2px;margin-bottom:16px;}
+.hero-title{font-family:'Secular One',sans-serif;font-size:clamp(32px,8vw,62px);color:#fff;line-height:1.05;}
+.hero-title .accent{
+  color:var(--yellow);
+  display:inline-block;
+  font-size:1.12em;
+  animation:swing 4.5s ease-in-out infinite;
+  transform-origin:center bottom;
+}
+@keyframes swing{
+  0%,100%{transform:rotate(-3deg);}
+  50%{transform:rotate(3deg);}
+}
+.hero-subtitle{margin-top:12px;color:rgba(255,255,255,.82);font-size:15px;font-weight:300;}
+.hero-bottom{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:22px;flex-wrap:wrap;}
+.hero-pill{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:12px;padding:4px 14px;border-radius:20px;font-weight:500;}
+
+/* FORM */
+.form-area{max-width:660px;margin:0 auto;padding:32px 16px 60px;}
+.form-card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 4px 6px rgba(0,0,0,.04),0 20px 60px rgba(0,0,0,.08);}
+.card-section{padding:28px 32px;border-bottom:1px solid var(--gray);}
+.card-section:last-child{border-bottom:none;}
+@media(max-width:500px){.card-section{padding:20px 18px;}}
+.section-header{display:flex;align-items:center;gap:10px;margin-bottom:20px;}
+.section-num{width:30px;height:30px;background:var(--blue);color:#fff;font-family:'Secular One',sans-serif;font-size:15px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.section-title{font-family:'Secular One',sans-serif;font-size:17px;color:var(--black);}
+
+/* Fields */
+.field{margin-bottom:18px;}
+.field:last-child{margin-bottom:0;}
+.field-label{font-size:13.5px;font-weight:700;color:#333;margin-bottom:7px;display:flex;align-items:center;gap:5px;flex-wrap:wrap;}
+.req{color:var(--blue);font-size:17px;line-height:1;}
+.hint{font-weight:400;font-size:11.5px;color:var(--mid);}
+input[type=text],input[type=tel],input[type=email],textarea,select{width:100%;font-family:'Heebo',sans-serif;font-size:15px;color:var(--black);background:var(--gray);border:2px solid transparent;border-radius:6px;padding:11px 14px;transition:border-color .2s,background .2s,box-shadow .2s;outline:none;-webkit-appearance:none;appearance:none;}
+input:focus,textarea:focus,select:focus{border-color:var(--blue);background:#fff;box-shadow:0 0 0 4px rgba(26,60,143,.12);}
+textarea{resize:vertical;min-height:100px;}
+.char-bar{margin-top:5px;height:3px;background:#eee;border-radius:2px;overflow:hidden;}
+.char-bar-fill{height:100%;background:var(--blue);border-radius:2px;transition:width .2s;width:0%;}
+.char-info{display:flex;justify-content:space-between;font-size:11px;color:var(--mid);margin-top:3px;}
+.select-wrap{position:relative;}
+.select-wrap::after{content:'▾';position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--blue);pointer-events:none;font-size:15px;}
+select{cursor:pointer;padding-left:34px;}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:480px){.field-row{grid-template-columns:1fr;}}
+
+/* Upload */
+.upload-zone{border:2.5px dashed #ccc;border-radius:8px;padding:20px 16px;text-align:center;cursor:pointer;background:#f8faff;transition:border-color .2s,background .2s;}
+.upload-zone:hover{border-color:var(--blue);background:#eef2f9;}
+.upload-icon{font-size:32px;margin-bottom:6px;pointer-events:none;}
+.upload-label{font-size:13px;color:var(--mid);pointer-events:none;}
+.upload-label strong{color:var(--blue);}
+#preview-wrap{display:none;margin-top:12px;position:relative;}
+#preview-wrap img{max-height:150px;border-radius:6px;border:1px solid #ddd;object-fit:cover;}
+.remove-btn{position:absolute;top:-8px;left:-8px;width:24px;height:24px;background:#e8232a;color:#fff;border:none;border-radius:50%;font-size:14px;font-weight:bold;cursor:pointer;line-height:24px;text-align:center;}
+.img-err{color:#e8232a;font-size:12px;margin-top:5px;display:none;}
+
+/* Checkbox */
+.check-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:14px;}
+.check-row input[type=checkbox]{width:19px;height:19px;accent-color:var(--blue);cursor:pointer;flex-shrink:0;margin-top:2px;}
+.check-row label{font-size:13.5px;font-weight:500;color:#333;cursor:pointer;line-height:1.55;}
+
+/* WhatsApp groups */
+.wa-groups-box{background:var(--gray);border:2px solid transparent;border-radius:6px;padding:12px 14px;display:flex;flex-direction:column;gap:2px;max-height:260px;overflow-y:auto;}
+.wa-option{display:flex;align-items:center;gap:9px;padding:7px 8px;border-radius:5px;cursor:pointer;font-size:13.5px;color:#333;transition:background .15s;}
+.wa-option:hover{background:rgba(26,60,143,.07);}
+.wa-option input[type=checkbox]{width:17px;height:17px;accent-color:var(--blue);cursor:pointer;flex-shrink:0;}
+
+/* Disclaimer */
+.disclaimer{background:#f0f4ff;border:1.5px solid #c0cff0;border-right:4px solid var(--blue);border-radius:6px;padding:16px 18px;}
+.disclaimer .check-row label{font-size:12.5px;font-weight:400;color:#444;}
+.required-note{font-size:12px;color:var(--mid);margin-bottom:20px;padding:10px 14px;background:var(--gray);border-radius:6px;border-right:3px solid #ccc;}
+
+/* Submit */
+.submit-section{padding:24px 32px 32px;}
+.submit-btn{width:100%;background:var(--blue);color:#fff;font-family:'Secular One',sans-serif;font-size:20px;border:none;border-radius:8px;padding:16px 24px;cursor:pointer;transition:transform .15s,box-shadow .15s,background .15s;box-shadow:0 4px 0 var(--blue-dark),0 6px 20px rgba(26,60,143,.3);}
+.submit-btn:hover:not(:disabled){background:var(--blue-light);transform:translateY(-2px);}
+.submit-btn:disabled{background:#ccc;box-shadow:0 4px 0 #aaa;cursor:not-allowed;}
+.spinner{display:none;width:22px;height:22px;border:3px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;margin:0 auto;}
+
+/* Success */
+#success-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:100;align-items:center;justify-content:center;}
+#success-overlay.show{display:flex;}
+.success-box{background:#fff;border-radius:16px;padding:48px 36px;text-align:center;max-width:380px;width:90%;}
+.success-box .big-icon{font-size:72px;line-height:1;margin-bottom:16px;}
+.success-box h2{font-family:'Secular One',sans-serif;font-size:26px;color:var(--blue);margin-bottom:10px;}
+.success-box p{font-size:14px;color:var(--mid);line-height:1.7;}
+.success-close{margin-top:24px;background:var(--blue);color:#fff;border:none;border-radius:6px;font-family:'Secular One',sans-serif;font-size:16px;padding:12px 32px;cursor:pointer;}
+
+/* Toast */
+#error-toast{display:none;position:fixed;bottom:24px;right:24px;background:#333;color:#fff;padding:14px 20px;border-radius:8px;font-size:14px;z-index:200;border-right:4px solid #e8232a;max-width:320px;}
+
+@keyframes spin{to{transform:rotate(360deg)}}
+footer{text-align:center;padding:20px;font-size:12px;color:#aaa;}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">⚡ פרסום מהיר ופשוט</div>
+    <h1 class="hero-title">זירת <span class="accent">העודפים</span><br/>של ישראל</h1>
+    <p class="hero-subtitle">מכור את העודפים שלך ● הגע לקונים בכל הארץ</p>
+    <div class="hero-bottom">
+      <span class="hero-pill">✓ חשיפה איכותית וממוקדת</span>
+      <span class="hero-pill">✓ פרסום מיידי</span>
+      <span class="hero-pill">✓ כל הארץ</span>
+    </div>
+  </div>
+</div>
+
+<div class="form-area">
+<div class="form-card">
+<form id="adForm">
+
+  <div class="card-section">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <div class="section-title">פרטי הסחורה</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label"><span class="req">*</span> מה אני מוכר? <span class="hint">עד 100 תווים</span></div>
+      <input type="text" id="description" name="מה אני מוכר" placeholder="כותרת קצרה ומדויקת של הסחורה..." maxlength="100" required style="font-weight:700;font-size:16px;"/>
+      <div class="char-info"><span id="desc-count">0 / 100 תווים</span><span id="desc-hint"></span></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label"><span class="req">*</span> תיאור <span class="hint">עד 300 תווים</span></div>
+      <textarea id="body" name="תיאור" placeholder="תאר את הסחורה, הכמות, המצב, המחיר המבוקש..." maxlength="300" required></textarea>
+      <div class="char-bar"><div class="char-bar-fill" id="bar-fill2"></div></div>
+      <div class="char-info"><span id="body-count">0 / 300 תווים</span><span id="body-hint"></span></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">📷 הוסף תמונה <span class="hint">אופציונלי – JPG / PNG / WebP</span></div>
+      <input type="file" id="imageInput" name="תמונה" accept=".jpg,.jpeg,.png,.webp" style="display:none"/>
+      <div class="upload-zone" id="uploadZone">
+        <div class="upload-icon">🖼️</div>
+        <div class="upload-label">לחץ לבחירת קובץ או <strong>גרור לכאן</strong><br/><span style="font-size:11px">JPG, PNG, WebP · מומלץ עד 5MB</span></div>
+        <div id="preview-wrap">
+          <button type="button" class="remove-btn" id="remove-img">✕</button>
+          <img id="img-preview" src="" alt=""/>
+        </div>
+      </div>
+      <div class="img-err" id="img-error">⚠️ יש לבחור קובץ JPG, PNG או WebP בלבד.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label"><span class="req">*</span> אזור</div>
+      <div class="select-wrap">
+        <select id="region" name="אזור" required>
+          <option value="" disabled selected>בחר אזור...</option>
+          <option>צפון</option><option>דרום</option><option>מרכז</option>
+          <option>חדרה, זיכרון והעמקים</option>
+          <option>יהודה ושומרון ובקעת הירדן</option>
+          <option>שרון</option>
+          <option>שפלה ומישור החוף הדרומי</option>
+          <option>מחוז ירושלים</option>
+          <option>כל הארץ</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="field-label"><span class="req">*</span> 💬 באיזו קבוצת ווצאפ לפרסם? <span class="hint">ניתן לבחור יותר מאחת</span></div>
+      <div class="wa-groups-box" id="waGroupsBox">
+        <label class="wa-option"><input type="checkbox" name="קבוצות ווצאפ" value="עודפי בניה בין חברים - ארצי"/> עודפי בניה בין חברים - ארצי</label>
+        <label class="wa-option"><input type="checkbox" name="קבוצות ווצאפ" value="הצעות מחיר בין חברים בעלי מקצוע פנויים+קבלנים"/> הצעות מחיר בין חברים בעלי מקצוע פנויים+קבלנים</label>
+        <label class="wa-option"><input type="checkbox" name="קבוצות ווצאפ" value="כלי עבודה בין חברים"/> כלי עבודה בין חברים</label>
+        <label class="wa-option"><input type="checkbox" name="קבוצות ווצאפ" value="חומרי בנין- סטוקים ומבצעים מטורפים"/> חומרי בנין- סטוקים ומבצעים מטורפים</label>
+        <label class="wa-option"><input type="checkbox" name="קבוצות ווצאפ" value="עודפי בניה בין חברים- צפון"/> עודפי בניה בין חברים- צפון</label>
+        <label class="wa-option"><input type="checkbox" name="קבוצות ווצאפ" value="עודפי בניה בין חברים- דרום"/> עודפי בניה בין חברים- דרום</label>
+        <label class="wa-option"><input type="checkbox" name="קבוצות ווצאפ" value="עודפי בניה בין חברים- מרכז"/> עודפי בניה בין חברים- מרכז</label>
+        <label class="wa-option"><input type="checkbox" name="קבוצות ווצאפ" value="עודפי בניה בין חברים- חדרה זיכרון והעמקים"/> עודפי בניה בין חברים- חדרה זיכרון והעמקים</label>
+        <label class="wa-option"><input type="checkbox" name="קבוצות ווצאפ" value="עודפי בניה בין חברים- יהודה ושומרון ובקעת הירדן"/> עודפי בניה בין חברים- יהודה ושומרון ובקעת הירדן</label>
+        <label class="wa-option"><input type="checkbox" name="קבוצות ווצאפ" value="עודפי בניה בין חברים- שרון"/> עודפי בניה בין חברים- שרון</label>
+        <label class="wa-option"><input type="checkbox" name="קבוצות ווצאפ" value="עודפי בניה בין חברים- שפלה ומישור החוף הדרומי"/> עודפי בניה בין חברים- שפלה ומישור החוף הדרומי</label>
+        <label class="wa-option"><input type="checkbox" name="קבוצות ווצאפ" value="עודפי בניה בין חברים- מחוז ירושלים"/> עודפי בניה בין חברים- מחוז ירושלים</label>
+        <label class="wa-option"><input type="checkbox" name="קבוצות ווצאפ" value="משרות חמות בענף הבנייה"/> משרות חמות בענף הבנייה</label>
+        <label class="wa-option"><input type="checkbox" name="קבוצות ווצאפ" value="פועלי בנין/ עובדים ביומית"/> פועלי בנין/ עובדים ביומית</label>
+      </div>
+      <div id="wa-error" style="color:#e8232a;font-size:12px;margin-top:5px;display:none;">⚠️ יש לבחור לפחות קבוצה אחת.</div>
+    </div>
+  </div>
+
+  <div class="card-section">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <div class="section-title">פרטי המוכר</div>
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <div class="field-label"><span class="req">*</span> שם המוכר <span class="hint">עד 50 תווים</span></div>
+        <input type="text" id="sellerName" name="שם המוכר" placeholder="שם / שם עסק" maxlength="50" required/>
+      </div>
+      <div class="field">
+        <div class="field-label"><span class="req">*</span> טלפון ליצירת קשר</div>
+        <input type="tel" id="phone" name="טלפון" placeholder="05X-XXXXXXX" required/>
+      </div>
+    </div>
+    <div class="check-row" style="margin-top:4px">
+      <input type="checkbox" id="whatsapp" name="WhatsApp" value="כן"/>
+      <label for="whatsapp">💬 ניתן לפנות גם ב-WhatsApp</label>
+    </div>
+    <div class="field" style="margin-top:14px">
+      <div class="field-label">דוא"ל ליצירת קשר <span class="hint">אופציונלי</span></div>
+      <input type="email" id="email" name="דואל" placeholder="example@email.com"/>
+    </div>
+  </div>
+
+  <div class="card-section">
+    <div class="required-note">ללא השלמת הפרטים בשדות המסומנים ב<span class="req">*</span> לא ניתן להשלים את שליחת הטופס.</div>
+    <div class="disclaimer">
+      <div class="check-row">
+        <input type="checkbox" id="terms" required/>
+        <label for="terms">הריני מאשר בזאת כי כל הפרטים שמסרתי הינם נכונים וכי אני היחיד הנושא באחריות הבלעדית לטיב הסחורה ו/או השירות שאני מבקש לפרסם, וכי לא יהיו לי טענות או תביעות כלשהן ממפעיל כלי הפרסום.</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="submit-section">
+    <button type="submit" class="submit-btn" id="submitBtn" disabled>
+      <span id="btn-text">← שלח מודעה עכשיו!</span>
+      <div class="spinner" id="spinner"></div>
+    </button>
+  </div>
+
+</form>
+</div>
+</div>
+
+<footer>זירת העודפים של ישראל © 2025</footer>
+
+<div id="success-overlay">
+  <div class="success-box">
+    <div class="big-icon">🎉</div>
+    <h2>המודעה נשלחה!</h2>
+    <p>תודה רבה על פרסום המודעה.<br/>פרטיה הועברו אלינו ויטופלו בהקדם.</p>
+    <p style="font-size:12px;color:#888;margin-top:10px;line-height:1.6;">הטופס נשלח לבדיקה ולאישור. הפרסום יעלה בהקדם.<br/>בשלב זה הפרסום לעסקים חינמי, מפעיל שירותי הפרסום שומר לעצמו את האפשרות לשנות זאת בעתיד.</p>
+    <button class="success-close" onclick="document.getElementById('success-overlay').classList.remove('show')">סגור</button>
+  </div>
+</div>
+
+<div id="error-toast"></div>
+
+<script>
+// Char counters
+const descEl  = document.getElementById('description');
+const countEl = document.getElementById('desc-count');
+const hintEl  = document.getElementById('desc-hint');
+descEl.addEventListener('input', function() {
+  var n = this.value.length;
+  countEl.textContent = n + ' / 100 תווים';
+  hintEl.textContent  = n >= 90 ? (100-n) + ' תווים נותרו' : '';
+  checkForm();
+});
+
+const bodyEl    = document.getElementById('body');
+const barFill2  = document.getElementById('bar-fill2');
+const bodyCount = document.getElementById('body-count');
+const bodyHint  = document.getElementById('body-hint');
+bodyEl.addEventListener('input', function() {
+  var n = this.value.length, pct = (n/300)*100;
+  barFill2.style.width = pct + '%';
+  bodyCount.textContent = n + ' / 300 תווים';
+  bodyHint.textContent  = n >= 280 ? (300-n) + ' תווים נותרו' : '';
+  checkForm();
+});
+
+// Image upload
+var imageFile = null;
+var imgInput    = document.getElementById('imageInput');
+var uploadZone  = document.getElementById('uploadZone');
+var previewWrap = document.getElementById('preview-wrap');
+var imgPreview  = document.getElementById('img-preview');
+var imgError    = document.getElementById('img-error');
+
+uploadZone.addEventListener('click', function() {
+  imgInput.click();
+});
+
+imgInput.addEventListener('change', function() {
+  handleFile(this.files[0]);
+});
+
+uploadZone.addEventListener('dragover', function(e) {
+  e.preventDefault();
+  uploadZone.style.borderColor = '#1A3C8F';
+});
+uploadZone.addEventListener('dragleave', function() {
+  uploadZone.style.borderColor = '#ccc';
+});
+uploadZone.addEventListener('drop', function(e) {
+  e.preventDefault();
+  uploadZone.style.borderColor = '#ccc';
+  if (e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]);
+});
+
+document.getElementById('remove-img').addEventListener('click', function(e) {
+  e.stopPropagation();
+  clearFile();
+});
+
+function handleFile(file) {
+  imgError.style.display = 'none';
+  if (!file) return;
+  if (!file.type.match(/image\/(jpeg|jpg|png|webp)/i)) {
+    imgError.style.display = 'block';
+    return;
+  }
+  imageFile = file;
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    imgPreview.src = e.target.result;
+    previewWrap.style.display = 'block';
+  };
+  reader.readAsDataURL(file);
+}
+
+function clearFile() {
+  imgInput.value = '';
+  imageFile = null;
+  imgPreview.src = '';
+  previewWrap.style.display = 'none';
+}
+
+// Validation
+var termsEl   = document.getElementById('terms');
+var submitBtn = document.getElementById('submitBtn');
+
+function getSelectedGroups() {
+  return Array.from(document.querySelectorAll('input[name="קבוצות ווצאפ"]:checked')).map(function(cb){ return cb.value; });
+}
+
+function checkForm() {
+  var desc    = document.getElementById('description').value.trim();
+  var body    = document.getElementById('body').value.trim();
+  var region  = document.getElementById('region').value;
+  var seller  = document.getElementById('sellerName').value.trim();
+  var phone   = document.getElementById('phone').value.trim();
+  var groups  = getSelectedGroups().length > 0;
+  var terms   = termsEl.checked;
+  submitBtn.disabled = !(desc && body && region && seller && phone && groups && terms);
+}
+
+['description','body','sellerName','phone'].forEach(function(id) {
+  document.getElementById(id).addEventListener('input', checkForm);
+});
+document.getElementById('region').addEventListener('change', checkForm);
+termsEl.addEventListener('change', checkForm);
+document.querySelectorAll('input[name="קבוצות ווצאפ"]').forEach(function(cb) {
+  cb.addEventListener('change', checkForm);
+});
+
+// Toast
+function showToast(msg) {
+  var t = document.getElementById('error-toast');
+  t.textContent = msg;
+  t.style.display = 'block';
+  setTimeout(function(){ t.style.display = 'none'; }, 5000);
+}
+
+// Submit
+document.getElementById('adForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  document.getElementById('btn-text').style.display = 'none';
+  document.getElementById('spinner').style.display  = 'block';
+  submitBtn.disabled = true;
+
+  var groups = getSelectedGroups().join(', ');
+
+  var waChecked = document.getElementById('whatsapp').checked ? 'כן' : 'לא';
+  var emailVal  = document.getElementById('email').value || 'לא הוזן';
+
+  var message =
+    '📦 מה אני מוכר: ' + document.getElementById('description').value + '\n' +
+    '📝 תיאור: ' + document.getElementById('body').value + '\n' +
+    '📍 אזור: ' + document.getElementById('region').value + '\n\n' +
+    '👤 שם המוכר: ' + document.getElementById('sellerName').value + '\n' +
+    '📞 טלפון: ' + document.getElementById('phone').value + '\n' +
+    '💬 WhatsApp: ' + waChecked + '\n' +
+    '📧 דואל: ' + emailVal + '\n\n' +
+    '📣 קבוצות ווצאפ לפרסום:\n' + groups + '\n\n' +
+    '✅ המפרסם אישר כי:\n' +
+    'הריני מאשר בזאת כי כל הפרטים שמסרתי הינם נכונים וכי אני היחיד הנושא באחריות הבלעדית לטיב הסחורה ו/או השירות שאני מבקש לפרסם, וכי לא יהיו לי טענות או תביעות כלשהן ממפעיל כלי הפרסום.';
+
+  var payload = {
+    access_key: '944e8a8f-49fb-489d-b355-93962e7e5091',
+    subject: 'מודעה חדשה מ' + document.getElementById('sellerName').value + ' - זירת העודפים של ישראל',
+    message: message
+  };
+
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    body: JSON.stringify(payload),
+    headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
+  })
+  .then(function(res) {
+    if (res.ok) {
+      document.getElementById('adForm').reset();
+      clearFile();
+      bodyCount.textContent = '0 / 300 תווים';
+      countEl.textContent   = '0 / 100 תווים';
+      checkForm();
+      document.getElementById('success-overlay').classList.add('show');
+    } else {
+      return res.json().then(function(data) {
+        showToast('שגיאה ' + res.status + ': ' + JSON.stringify(data));
+      });
+    }
+  })
+  .catch(function(err) {
+    showToast('שגיאה: ' + err.message);
+  })
+  .finally(function() {
+    document.getElementById('btn-text').style.display = 'block';
+    document.getElementById('spinner').style.display  = 'none';
+    checkForm();
+  });
+});
+</script>
+</body>
+</html>
